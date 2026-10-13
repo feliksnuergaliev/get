@@ -1,5 +1,6 @@
 import smbus
 import RPi.GPIO as gp
+
 class MCP4725:
     def __init__(self, dynamic_range, address=0x61, verbose = True):
         self.bus = smbus.SMBus(1)
