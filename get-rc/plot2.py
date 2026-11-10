@@ -36,6 +36,7 @@ def discharge_model(t, A, tau, c):
 # ---------- Аппроксимация ----------
 p0_c = [u_c.max() - u_c.min(), t_c[-1] / 3, u_c.min()]
 p0_d = [u_d.max() - u_d.min(), t_d[-1] / 3, u_d.min()]
+print(len(t_c), len(t_d), i_peak)
 
 pc, _ = curve_fit(charge_model, t_c, u_c, p0=p0_c, maxfev=10000)
 pd, _ = curve_fit(discharge_model, t_d, u_d, p0=p0_d, maxfev=10000)

@@ -4,12 +4,12 @@
 # Перед запуском: raspi-gpio set 2 a0 и raspi-gpio set 3 a0
 import time
 import RPi.GPIO as GPIO
-from mcp3021_driver import MCP3021
+from mcp3021_driver import MCP3021 
 
 DYNAMIC_RANGE = 5.11      # В, динамический диапазон MCP3021
 PIN = 14                  # GPIO, от которого питается RC-цепь
-CHARGE_TIME = 50          # с, сколько держим GPIO14 = 1
-DISCHARGE_TIME = 50       # с, сколько держим GPIO14 = 0
+CHARGE_TIME = 10          # с, сколько держим GPIO14 = 1
+DISCHARGE_TIME = 10       # с, сколько держим GPIO14 = 0
 CYCLES = 1                # сколько раз повторить зарядку + разрядку
 FILE_NAME = "rc_data.csv"
 
