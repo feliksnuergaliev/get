@@ -35,6 +35,16 @@ class R2R_ADC:
     def get_sc_voltage(self):
         return self.sequential_counting_adc() / (2 ** len(self.bits_gpio) - 1) * self.dynamic_range
 
+    def sucsessive_approximation_adc(self):
+        for bit in reversed(range(self.bits_gpio)):
+            trial = code | (1 << bit)
+            self.set_dac(trial)
+            time.sleep(self.compare_time)
+            if self.comparator():
+                code = trial
+
+        return code
+
 
 if __name__ == "__main__":
     try:
